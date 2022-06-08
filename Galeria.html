@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pl-PL">
+<head>
+<meta charset="utf-8">
+<title>Galeria</title>
+<link rel="stylesheet" href="U.CSS">
+</head>
+<body class="XD">
+<div class="text">
+			<a href="Strona_główna.html">Do strony głównej</a>
+	</div>
+<!-- Container for the image gallery -->
+<div class="container">
+  <!-- Full-width images with number text -->
+  <div class="mySlides">
+    <div class="numbertext">1 / 7</div>
+      <img src="Foto/1B.jpeg" style="width:100%" alt="Failled to load">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 7</div>
+      <img src="Foto/2B.jpeg" style="width:100%" alt="Failled to load">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 7</div>
+      <img src="Foto/3B.png" style="width:100%" alt="Failled to load">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">4 / 7</div>
+      <img src="Foto/4B.jpg" style="width:100%" alt="Failled to load">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 7</div>
+      <img src="Foto/5B.jpg" style="width:100%" alt="Failled to load">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">6 / 7</div>
+      <img src="Foto/6B.jpg" style="width:100%" alt="Failled to load">
+	</div>
+	   <div class="mySlides">
+    <div class="numbertext">7 / 7</div>
+      <img src="Foto/7B.jpg" style="width:100%" alt="Failled to load">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  <!-- Image text -->
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <!-- Thumbnail images -->
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="Foto/1S.png" style="width:100%" onclick="currentSlide(1)" alt="1">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Foto/2S.png" style="width:100%" onclick="currentSlide(2)" alt="2">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Foto/3S.png" style="width:100%" onclick="currentSlide(3)" alt="3">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Foto/4S.png" style="width:100%" onclick="currentSlide(4)" alt="4">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Foto/5S.jpg" style="width:100%" onclick="currentSlide(5)" alt="5">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Foto/6S.png" style="width:100%" onclick="currentSlide(6)" alt="6">
+    </div>
+	  <div class="column">
+      <img class="demo cursor" src="Foto/7S.png" style="width:100%" onclick="currentSlide(6)" alt="6">
+    </div>
+  </div>
+</div>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+</body>
+</html>
